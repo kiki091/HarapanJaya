@@ -23,6 +23,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        
+        $this->app->bind('App\Repositories\Contracts\Pasien', 'App\Repositories\Implementation\Pasien');
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return array(
+
+            'App\Repositories\Contracts\Pasien',
+
+        );
     }
 }

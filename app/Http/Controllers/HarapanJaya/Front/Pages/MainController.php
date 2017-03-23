@@ -22,9 +22,7 @@ class MainController extends BaseController
 
 	public function index(Request $request)
 	{
-		$data['pasien'] = $this->pasien->getDataPasien();
-dd($data['pasien']);
-		$blade = self::URL_BLADE_SITE. '.main';
+		$blade = self::URL_BLADE_SITE. '.pasien';
         
         if(view()->exists($blade)) {
         
@@ -33,5 +31,12 @@ dd($data['pasien']);
         }
 
         return abort(404);
+	}
+
+	public function getData(Request $request)
+	{
+		$data['pasien'] = $this->pasien->getDataPasien();
+
+		return $this->response->setResponse(trans('success_get_data'), true, $data);
 	}
 }

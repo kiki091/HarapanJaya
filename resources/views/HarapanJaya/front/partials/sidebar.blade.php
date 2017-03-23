@@ -14,7 +14,7 @@
         <ul class="nav side-menu">
           <li><a><i class="fa fa-users"></i> Pasien <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="#">Data</a></li>
+              <li><a href="#data-pasien" onclick="menuPasien()">Data</a></li>
             </ul>
           </li>
         </ul>

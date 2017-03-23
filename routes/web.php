@@ -15,6 +15,17 @@ Route::group(['middleware' => ['web']], function ()
 {
 	Route::group(['domain' => env('WORLD_WIDE_WEB') . env('DOMAIN_PREFIX') . env('APP_DOMAIN')], function()
 	{
-		Route::get('/', 'HarapanJaya\Front\Pages\MainController@index')->name('MainPage');
+		Route::group(array('prefix' => 'dashboard'), function ()
+		{
+			Route::get('/', function () {
+    			return view('HarapanJaya/front/pages/main');
+			});
+
+			Route::group(array('prefix' => 'pasien'), function ()
+			{
+				Route::get('/', 'HarapanJaya\Front\Pages\MainController@index')->name('IndexPasien');
+				Route::get('data', 'HarapanJaya\Front\Pages\MainController@getData')->name('GetDataPasien');
+			});
+		});
 	});
 });

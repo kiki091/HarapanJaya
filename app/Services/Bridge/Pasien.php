@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Bridge\Front;
+namespace App\Services\Bridge;
 
 use App\Repositories\Contracts\Pasien as PasienInterface;
 
